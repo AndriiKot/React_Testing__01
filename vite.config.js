@@ -1,7 +1,17 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+const { defineConfig } = require('vite');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-})
+module.exports = defineConfig({
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://сервер-api-url.com',
+        changeOrigin: true,
+        secure: false,
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }
+      }
+    }
+  }
+});
