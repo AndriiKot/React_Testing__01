@@ -1,17 +1,17 @@
-const { defineConfig } = require('vite');
-const { createProxyMiddleware } = require('http-proxy-middleware');
+import { defineConfig } from "vite";
+import { createProxyMiddleware } from "http-proxy-middleware";
 
-module.exports = defineConfig({
+export default defineConfig({
   server: {
     proxy: {
-      '/api': {
-        target: 'http://сервер-api-url.com',
+      "/api": {
+        target: "https://api.privatbank.ua",
         changeOrigin: true,
         secure: false,
         headers: {
-          'Access-Control-Allow-Origin': '*'
-        }
-      }
-    }
-  }
+          "Access-Control-Allow-Origin": "*",
+        },
+      },
+    },
+  },
 });
