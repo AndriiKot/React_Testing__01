@@ -1,6 +1,9 @@
 import "./App.css";
 import React from "react";
 import fetchCoursid from "./FetchCoursid/FetchCoursid";
+import cors from "cors";
+// app.use(cors());
+
 
 function App() {
   fetchCoursid();

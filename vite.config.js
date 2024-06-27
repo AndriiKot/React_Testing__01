@@ -1,17 +1,11 @@
 import { defineConfig } from "vite";
-import { createProxyMiddleware } from "http-proxy-middleware";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   server: {
     proxy: {
-      "/api": {
-        target: "https://api.privatbank.ua",
-        changeOrigin: true,
-        secure: false,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      },
+      "/api": "http://localhost:8800",
     },
   },
+  plugins: [react()],
 });
