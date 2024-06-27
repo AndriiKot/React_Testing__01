@@ -16,8 +16,12 @@
 
 const fetchPosts = async () => {
   const { host, path, key } = config;
-  // const url = `https://${host}/${path}${key}`;
-  const url = "https://www.cbr-xml-daily.ru/daily_json.js";
+//  const url = `https://${host}/${path}${key}`;
+//  const url = "https://www.cbr-xml-daily.ru/daily_json.js";
+//    const url = "https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11";
+//	const url = "https://api.coingate.com/v2/rates/merchant/EUR/SDH/";
+	const url = "https://api.coingate.com/v2/rates/merchant/EUR/UAH/";
+
   const res = await fetch(url);
   const data = await res.json();
   console.log(data);
